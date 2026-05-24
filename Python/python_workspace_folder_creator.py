@@ -18,12 +18,13 @@ MAIN_PY = "src/main.py"
 APP_PY = "src/app.py"
 ERROR_PY = "src/core/error_handler/error_handler.py"
 YAML = "config/config.yaml"
+REQUIREMENTS = "requirements.txt"
 
 
 def main():
     #create a list of folder names to be created for Xilinx Workspace
     folder_names = [CONFIG, SRC, SERVICES, BUILD, TESTS, UTILS, CORE]
-    file_names = [README, MAIN_PY, APP_PY, ERROR_PY, YAML]
+    file_names = [README, MAIN_PY, APP_PY, ERROR_PY, YAML, REQUIREMENTS]
     
     # Parse command line arguments for base directory
     parser = argparse.ArgumentParser(description="Create Xilinx workspace folder structure.")

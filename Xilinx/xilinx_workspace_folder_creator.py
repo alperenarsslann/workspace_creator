@@ -50,6 +50,15 @@ def main():
     workspace_tcl = os.path.join(base_directory, Scripts, "creating_project.tcl")
     shutil.copyfile(TCL_TEMPLATE, workspace_tcl)
 
+        # Initialize git in the base directory (entire workspace)
+    try:
+        subprocess.run(['git', 'init'], cwd=base_directory, check=True)
+        print(f"Git repository initialized in: {base_directory}")
+    except subprocess.CalledProcessError as e:
+        print(f"Error initializing git: {e}")
+    except FileNotFoundError:
+        print("Git is not installed or not found in the system PATH.")
+
     # Run Vivado batch with tclargs
     try:
         proc = subprocess.Popen(
